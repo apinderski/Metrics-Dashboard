@@ -20,12 +20,18 @@ app.config.update(
     )
 )
 
-
+ 
 def connect_db():
+    '''
+    Returns a Connection that represents the database used
+    '''
     return sqlite3.connect(app.config["DATABASE"])
 
 
 def init_db():
+    '''
+    Saves the current transactions to the database 
+    '''
     with closing(connect_db()) as db:
         db.commit()
 
