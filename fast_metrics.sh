@@ -4,29 +4,34 @@ echo "Running all metrics scripts for repository: $1"
 
 docker volume create metrics
 
-# Run Issues
-cd Issues
-./metrics.sh $1 $2
+# Run Commits
+cd Commits
+./CommitsModule.sh $1 $2 $3
 cd ..
+
+# Run Issues
+# cd Issues
+# ./IssuesModule.sh $1 $2 $3
+# cd ..
 
 # Run GitModule
-cd GitModule
-./metrics.sh $1
-cd ..
+# cd GitModule
+# ./GitModule.sh $1 $2
+# cd ..
 
 # Run Issue_Spoilage
-cd Issue_Spoilage
-./metrics.sh $1 $2
-cd ..
+# cd Issue_Spoilage
+# ./IssueSpoilageModule.sh $1 $2 $3
+# cd ..
 
 # Run Defect Density (this command should also copy volume content to the current dir)
-cd Defect_Density
-./metrics.sh $1 $2
-cd ..
+# cd Defect_Density
+# ./DefectDensityModule.sh $1 $2 $3
+# cd ..
 
 # Run Graph
 cd Graph
-./metrics.sh $1
+./GraphModule.sh $1
 cd ..
 
 
